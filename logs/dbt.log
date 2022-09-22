@@ -1,0 +1,26 @@
+
+
+============================== 2022-09-22 03:16:35.779915 | e32872c2-f994-406a-8c0f-4a9bf18ff30c ==============================
+[0m03:16:35.779945 [info ] [MainThread]: Running with dbt=1.2.1
+[0m03:16:35.780600 [debug] [MainThread]: running dbt with arguments {'write_json': True, 'use_colors': True, 'printer_width': 80, 'version_check': True, 'partial_parse': True, 'static_parser': True, 'profiles_dir': '/home/hmicheal/.dbt', 'send_anonymous_usage_stats': True, 'event_buffer_size': 100000, 'quiet': False, 'no_print': False, 'skip_profile_setup': False, 'which': 'init', 'indirect_selection': 'eager'}
+[0m03:16:35.780797 [debug] [MainThread]: Tracking: tracking
+[0m03:16:35.782306 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8b8545b160>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8b8545b310>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8b8545b430>]}
+[0m03:16:50.008052 [debug] [MainThread]: Starter project path: /home/hmicheal/.conda/envs/10x/lib/python3.10/site-packages/dbt/include/starter_project
+[0m03:16:52.562328 [info ] [MainThread]: 
+Your new dbt project "dbt" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m03:16:52.562706 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8b83938130>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8b83938e50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8b839380d0>]}
+[0m03:16:52.562918 [debug] [MainThread]: Flushing usage events
