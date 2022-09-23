@@ -38,7 +38,7 @@ def insert_data_to_db():
     con = Connection()
     vehicles = pd.read_csv('/opt/airflow/data/vehicles.csv')
     trajectories = pd.read_csv('/opt/airflow/data/trajectories.csv')
-    con.df_to_sql('trajectories', vehicles)
+    con.df_to_sql('vehicles', vehicles)
     con.df_to_sql('trajectories', trajectories)
 
 with DAG(

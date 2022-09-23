@@ -1,11 +1,12 @@
 from sqlalchemy import create_engine
+from sqlalchemy import text
 import psycopg2
 
 class Connection:
     def __init__(self):
         self.engine = create_engine("postgresql+psycopg2://airflow:airflow@postgres/airflow", echo=True)
-        self.vehicle_schema = "schema/vehicle_data_schema.sql"
-        self.trajectories_schema = "schema/trajectories_data_schema.sql"
+        self.vehicle_schema = "/opt/airflow/dags/scripts/schema/vehicle.sql"
+        self.trajectories_schema = "/opt/airflow/dags/scripts/schema/trajectories.sql"
 
     def create_table(self):
         """
@@ -14,10 +15,9 @@ class Connection:
         try:
             with self.engine.connect() as conn:
                 for name in [self.vehicle_schema, self.trajectories_schema]:
-                    with open(f'./{name}') as file:
+                    with open(f'{name}') as file:
                         query = text(file.read())
                         conn.execute(query)
-                print("Successfull")
         except Exception as e:
             print(e)
 
@@ -28,8 +28,8 @@ class Connection:
             tablename: The database table name
         """
         try:
-            with engine.connect() as conn:
-                df.to_sql(name=name, con=conn, if_exists='replace', index=False)
+            with self.engine.connect() as conn:
+                raw_df.to_sql(name=tablename, con=conn, if_exists='replace', index=False)
         except Exception as e:
             print(f"Failed  ---- {e}") 
 

@@ -29,39 +29,39 @@ class DataLoader:
         Return:
             Tuple of vehicle and trajectories dataframe
         """
-        vehicle_data = {
-            "uid": [],
-            headers[0]: [],
-            headers[1]: [],
-            headers[2]: [],
-            headers[3]: []
-        }
         trajectories_data = {
             "uid": [],
-            headers[4]: [],
-            headers[5]: [],
-            headers[6]: [],
-            headers[7]: [],
-            headers[8]: [],
-            headers[9]: []
-            }
-        
+            "lat": [],
+            "lon": [],
+            "speed": [],
+            "lon_acc": [],
+            "lat_acc": [],
+            "time":[]
+        }
+        vehicle_data  = {
+            "uid": [],
+            "type": [],
+            "traveled_distance": [],
+            "avg_speed": [],
+            "track_id": []
+        }
+    
         for idx, row in enumerate(rows):
             uid = uuid.uuid4().hex
             line = row.split('; ')[:-1]
             vehicle_data["uid"].append(uid)
-            vehicle_data[headers[0]].append(int(line[0]))
-            vehicle_data[headers[1]].append(line[1])
-            vehicle_data[headers[2]].append(float(line[2]))
-            vehicle_data[headers[3]].append(float(line[3]))
+            vehicle_data["track_id"].append(int(line[0]))
+            vehicle_data["type"].append(line[1])
+            vehicle_data["traveled_distance"].append(float(line[2]))
+            vehicle_data["avg_speed"].append(float(line[3]))
             for i in range(0, (len(line) // 6)*6, 6):
                 trajectories_data["uid"].append(uid)
-                trajectories_data[headers[4]].append(float(line[4+i]))
-                trajectories_data[headers[5]].append(float(line[4+i+1]))
-                trajectories_data[headers[6]].append(float(line[4+i+2]))
-                trajectories_data[headers[7]].append(float(line[4+i+3]))
-                trajectories_data[headers[8]].append(float(line[4+i+4]))
-                trajectories_data[headers[9]].append(float(line[4+i+5]))
+                trajectories_data["lat"].append(float(line[4+i]))
+                trajectories_data["lon"].append(float(line[4+i+1]))
+                trajectories_data["speed"].append(float(line[4+i+2]))
+                trajectories_data["lon_acc"].append(float(line[4+i+3]))
+                trajectories_data["lat_acc"].append(float(line[4+i+4]))
+                trajectories_data["time"].append(float(line[4+i+5]))
 
         vehicle_data_df = pd.DataFrame(vehicle_data).reset_index(drop=True)
         trajectories_data_df = pd.DataFrame(trajectories_data).reset_index(drop=True)
