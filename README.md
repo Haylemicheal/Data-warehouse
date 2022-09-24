@@ -1,7 +1,7 @@
 
 ## Overview
 A city traffic department wants to collect traffic data using swarm UAVs (drones) from a number of locations in the city and use the data collected for improving traffic flow in the city and for a number of other undisclosed projects. The company is responsible for creating a scalable data warehouse that will host the vehicle trajectory data extracted by analysing footage taken by swarm drones and static roadside cameras. 
-
+![Project design diagram](https://www.google.com/url?sa=i&url=https%3A%2F%2Fturbofuture.com%2Fmisc%2FTraffic-Data-Pipeline-And-Warehouse&psig=AOvVaw0z3AvrEQGUel3PSpkA9JIV&ust=1664122768836000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCJD6_dDqrfoCFQAAAAAdAAAAABAD)
 The data warehouse take into account future needs, organise data such that a number of downstream projects query the data efficiently. I use the Extract Load Transform (ELT) framework using DBT. The ELT framework helps analytic engineers in the city traffic department setup transformation workflows on a need basis. 
 
 
@@ -81,6 +81,11 @@ Building data warehouse techstack
 ```bash
   $ localhost:port number
 ```
+### Sample visualization from Redash
+![Fastest Vehicles Table](https://github.com/Haylemicheal/Data-warehouse/blob/main/images/fastvehicle%20table.png)
+![Fastest Vehicles Bar graph](https://github.com/Haylemicheal/Data-warehouse/blob/main/images/fast%20vehicles%20bar.png)
+![Distribution of the Vehicles table](https://github.com/Haylemicheal/Data-warehouse/blob/main/images/dist_table.png)
+![Distribution of the Vehicles piechart](https://github.com/Haylemicheal/Data-warehouse/blob/main/images/piechart.png)
     
 ## Author
 
